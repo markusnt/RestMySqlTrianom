@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 var sql = require('../../db');
 
 //Task object constructor
@@ -24,7 +24,7 @@ Grupo.createGrupo = function createGrupo(newGrupo, result) {
 //dando erro    
 Grupo.getGrupoByCd = function createGrupo(grupoCd, result) {
     
-    sql.query("SELECT cd_grupo, ds_grupo from grupo where cd_grupo = ?", grupoCd, function (err, res) {
+    sql.query("SELECT * from grupo where cd_grupo = ?", grupoCd, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(err, null)

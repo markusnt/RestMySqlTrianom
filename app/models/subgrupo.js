@@ -25,7 +25,7 @@ SubGrupo.createSubGrupo = function createSubGrupo(newSubGrupo, result) {
 //dando erro    
 SubGrupo.getSubGrupoByCd = function createSubGrupo(subgrupoCd, result) {
     
-    sql.query("SELECT cd_subgrupo, ds_subgrupo, cd_grupo from subgrupo where cd_subgrupo = ?", subgrupoCd, function (err, res) {
+    sql.query("SELECT * from subgrupo where cd_subgrupo = ?", subgrupoCd, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(err, null)
