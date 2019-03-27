@@ -3,6 +3,7 @@ module.exports = function(app) {
   var GrupoList = require('../controller/grupoController')
   var SubGrupoList = require('../controller/subgrupoController')
   var VendaList = require('../controller/vendaController')
+  var ProdutoList = require('../controller/produtoController')
   // todoList Routes
 
 
@@ -32,5 +33,13 @@ module.exports = function(app) {
     .get(VendaList.read_a_venda)
     .put(VendaList.update_a_venda)
     .delete(VendaList.delete_a_venda)
-    };
+    
+  
+  app.route('/produto')
+    .get(ProdutoList.list_all_produto)
+    .post(ProdutoList.create_a_produto)
+  app.route('produto/:produtoCd')
+    .get(ProdutoList.read_a_produto)
+    .delete(ProdutoList.delete_a_produto)
+  };
 
