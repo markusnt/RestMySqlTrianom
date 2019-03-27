@@ -32,7 +32,7 @@ exports.read_a_produto = function(req, res) {
     Produto.getProdutoByCd(req.params.produtoCd, function(err, produto) {
         if(err)
             res.send(err)
-        res.json(produto)
+        res.json(produto) 
     })
 }
 
