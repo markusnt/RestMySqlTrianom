@@ -70,4 +70,17 @@ Grupo.remove = function (cd_grupo, result) {
     })
 }
 
+Grupo.buscaSubGrupo = function (cd_grupo ,result) {
+    
+    sql.query("SELECT * FROM subgrupo where cd_grupo =  ?",
+    cd_grupo, function (err, res) {
+        if(err){
+            console.log("error", err);
+            result(err, null)
+        } else {
+            result(null, res)
+        }
+    })
+}
+
 module.exports = Grupo

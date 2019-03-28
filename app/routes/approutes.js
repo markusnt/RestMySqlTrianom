@@ -15,6 +15,8 @@ module.exports = function(app) {
     .get(GrupoList.read_a_grupo)
     .put(GrupoList.update_a_grupo)
     .delete(GrupoList.delete_a_grupo)
+  app.route('/grupoW/:grupoCd')
+    .get(GrupoList.read_a_subgrup)
 
 
   app.route('/subgrupo')
