@@ -26,7 +26,8 @@ module.exports = function(app) {
     .get(SubGrupoList.read_a_subgrupo)
     .put(SubGrupoList.update_a_subgrupo)
     .delete(SubGrupoList.delete_a_subgrupo)
-
+  app.route('/subgrupoW/:subgrupoCd')
+    .get(SubGrupoList.read_a_produto)
 
   app.route('/venda')
     .get(VendaList.list_all_venda)

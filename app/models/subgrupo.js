@@ -71,4 +71,17 @@ SubGrupo.remove = function (cd_subgrupo, result) {
     })
 }
 
+SubGrupo.buscaProduto = function (cd_subgrupo ,result) {
+    
+    sql.query("SELECT * FROM produto where cd_subgrupo = ?",
+    cd_subgrupo, function (err, res) {
+        if(err){
+            console.log("error", err);
+            result(err, null)
+        } else {
+            result(null, res)
+        }
+    })
+}
+
 module.exports = SubGrupo

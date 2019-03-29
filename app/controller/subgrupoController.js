@@ -35,6 +35,15 @@ exports.read_a_subgrupo = function(req, res) {
     })
 }
 
+exports.read_a_produto = function(req, res) {
+    SubGrupo.buscaProduto(req.params.subgrupoCd, function(err, subgrupo) {
+        if(err)
+            res.send(err)
+        res.json(subgrupo) 
+    })
+}
+
+
 exports.update_a_subgrupo = function(req, res) {
     SubGrupo.updateByCd(req.params.subgrupoCd, new SubGrupo(req.body), function(err, subgrupo) {
         if(err)

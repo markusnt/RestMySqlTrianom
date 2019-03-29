@@ -83,4 +83,6 @@ Grupo.buscaSubGrupo = function (cd_grupo ,result) {
     })
 }
 
+
+
 module.exports = Grupo
