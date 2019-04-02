@@ -8,7 +8,7 @@ exports.list_all_subgrupo = function(req, res) {
         console.log('controllerGrupo')
         if(err)
             res.send(err)
-            console.log('res', subgrupo)
+            // console.log('res', subgrupo)
         res.send(subgrupo)
     })
 }

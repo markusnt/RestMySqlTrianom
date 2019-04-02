@@ -41,7 +41,7 @@ Grupo.getAllGrupo = function getAllGrupo(result) {
             console.log("error: ", err);
             result(null, err)
         } else {
-            console.log('Grupos : ', res);
+            // console.log('Grupos : ', res);
             result(null, res)
         }
     })

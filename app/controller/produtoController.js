@@ -8,7 +8,7 @@ exports.list_all_produto = function(req, res) {
         console.log('controllerProduto')
         if(err)
             res.send(err)
-            console.log('res', produto)
+            // console.log('res', produto)
         res.send(produto)
     })
 }

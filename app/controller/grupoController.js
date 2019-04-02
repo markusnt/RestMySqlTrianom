@@ -5,10 +5,10 @@ var Grupo = require('../models/grupo')
 exports.list_all_grupo = function(req, res) {
     Grupo.getAllGrupo(function(err, grupo) {
 
-        console.log('controllerGrupo')
+        // console.log('controllerGrupo')
         if(err)
             res.send(err)
-            console.log('res', grupo)
+            // console.log('res', grupo)
         res.send(grupo)
     })
 }
