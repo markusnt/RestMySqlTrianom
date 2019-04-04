@@ -25,7 +25,7 @@ Produto.createProduto = function createProduto(newProduto, result) {
 
 Produto.getProdutoByCd = function createProduto(produtoCd, result) {
 
-    sql.query("SELECT * from produto where cd_produto = ?", produtoCd, function (err, res) {
+    sql.query("SELECT * FROM produto where cd_produto = ?", produtoCd, function (err, res) {
         if (err) {
             console.log("error: ", err)
             result(err,null)

@@ -41,7 +41,7 @@ module.exports = function(app) {
   app.route('/produto')
     .get(ProdutoList.list_all_produto)
     .post(ProdutoList.create_a_produto)
-  app.route('produto/:produtoCd')
+  app.route('/produto/:produtoCd')
     .get(ProdutoList.read_a_produto)
     .delete(ProdutoList.delete_a_produto)
   };
