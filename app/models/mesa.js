@@ -46,9 +46,10 @@ sql.query("SELECT * from mesa", function (err, res) {
 })
 }
 
-Mesa.updateByCd = function (cd_mesa, qtp_mesa, st_mesa, result) {
-
-    sql.query("UPDATE mesa SET cd_mesa = ?, qtp_mesa = ?, st_mesa = ? WHERE cd_mesa = ?", [cd_mesa.cd_mesa,qtp_mesa.qtp_mesa, st_mesa.st_mesa, cd_mesa], function (err, res) {
+Mesa.updateByCd = function (qtp_mesa, st_mesa, result) {
+    let qtp = qtp_mesa
+    let st = st_mesa
+    sql.query("UPDATE mesa SET qtp_mesa = ?, st_mesa = ? WHERE cd_mesa = ?", [qtp,st], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err)

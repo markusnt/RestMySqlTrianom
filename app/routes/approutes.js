@@ -53,9 +53,12 @@ module.exports = function(app) {
     .post(MesaList.create_a_mesa)
   app.route('/mesa/:mesaCd')
     .get(MesaList.read_a_mesa)
+    .put(MesaList.update_a_mesa)
     .delete(MesaList.delete_a_mesa)
 
   
-  // app.route('/usuario')
+  app.route('/usuario')
+    .get(UsuarioList.list_all_usuario)
+    .post(UsuarioList.create_a_usuario)
   };
 
