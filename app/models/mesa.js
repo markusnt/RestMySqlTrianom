@@ -1,55 +1,40 @@
-'use strict'
-var sql = require('../../db')
+'use strict';
+let sql = require('../../db');
 
-var Mesa = function (mesa) {
+let Mesa = (mesa) => {
     this.cd_mesa = mesa.cd_mesa
-    this.qtp_mesa = mesa.qtp_mesa
+    this.nr_mesa = mesa.nr_mesa
     this.st_mesa = mesa.st_mesa
 }
 
-Mesa.createMesa = function createMesa(newMesa, result) {
-
-    sql.query("INSERT INTO mesa set ?", newMesa, function (err, res){
-
-    if(err){
-        console.log("error: ", err)
-        result(err, null)
-    } else {
-        console.log(res.insertCd)
-        result(null, res.insertCd)
-    }
-})
+Mesa.getAllMesa = (result) => {
+    
+    sql.query("SELECT * from mesa", function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err)
+        } else {
+            // console.log('Grupos : ', res);
+            result(null, res)
+        }
+    })
 }
 
-Mesa.getMesaByCd = function createMesa(mesaCd, result) {
-
-sql.query("SELECT * from mesa where cd_mesa = ?", mesaCd, function (err, res) {
-    if (err) {
-        console.log("error: ", err)
-        result(err, null)
-    } else {
-        result(null, res)
-    }
-})
+Mesa.getMesaByCd = (_nrmesa, result) => {
+    
+    sql.query("SELECT * from mesa where nr_mesa = ?", _nrmesa, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null)
+        } else {
+            result(null, res)
+        }
+    })
 }
 
-Mesa.getAllMesa = function getAllMesa(result) {
-
-sql.query("SELECT * from mesa", function (err, res) {
-    if (err) {
-        console.log("error: ", err)
-        result(null, err)
-    } else {
-        console.log('Mesas: ', res)
-        result(null, res)
-    }
-})
-}
-
-Mesa.updateByCd = function (qtp_mesa, st_mesa, result) {
-    let qtp = qtp_mesa
-    let st = st_mesa
-    sql.query("UPDATE mesa SET qtp_mesa = ?, st_mesa = ? WHERE cd_mesa = ?", [qtp,st], function (err, res) {
+Mesa.updateByCd = (_nrmesa, result) => {
+    const st_mesa = req.param.body
+    sql.query("UPDATE mesa SET st_mesa = ? WHERE cd_mesa = ?", [st_mesa, _nrmesa], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err)
@@ -57,17 +42,6 @@ Mesa.updateByCd = function (qtp_mesa, st_mesa, result) {
             result( res)
         }
     })
-}
-
-Mesa.remove = function (cd_mesa, result) {
-sql.query("DELETE FROM mesa WHERE cd_mesa = ?", [cd_mesa], function (err, res) {
-    if(err) {
-        console.log("error: ",err)
-        result(null, err)
-    } else {
-        result (null, res)
-    }
-})
 }
 
 module.exports = Mesa

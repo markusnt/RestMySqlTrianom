@@ -21,7 +21,7 @@ const mc = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'r00t',
-    database: 'mydb'
+    database: 'trianon'
 });
  
 // connect to database
