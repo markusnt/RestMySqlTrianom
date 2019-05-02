@@ -4,7 +4,7 @@ let sql = require('../../db');
 let SubGrupo = (subgrupo) => {
     this.cd_subgrupo = subgrupo.cd_subgrupo
     this.ds_subgrupo = subgrupo.ds_subgrupo
-    this.cd_grupo    = subgrupo.cd_subgrupo
+    this.cd_grupo    = subgrupo.cd_grupo
 }
 
 SubGrupo.getAllSubGrupo = (result) => {
