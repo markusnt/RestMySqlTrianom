@@ -32,9 +32,30 @@ Mesa.getMesaByCd = (_nrmesa, result) => {
     })
 }
 
-Mesa.updateByCd = (_nrmesa, result) => {
-    const st_mesa = req.param.body
-    sql.query("UPDATE mesa SET st_mesa = ? WHERE cd_mesa = ?", [st_mesa, _nrmesa], function (err, res) {
+Mesa.updateByDisponivel = (_nrmesa, result) => {
+    sql.query("UPDATE mesa SET st_mesa = 'disponovel' WHERE cd_mesa = ?", _nrmesa, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err)
+        } else {
+            result( res)
+        }
+    })
+}
+
+Mesa.updateByAtendimento = (_nrmesa, result) => {
+    sql.query("UPDATE mesa SET st_mesa = 'atendimento' WHERE cd_mesa = ?", _nrmesa, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err)
+        } else {
+            result( res)
+        }
+    })
+}
+
+Mesa.updateByPreConta = (_nrmesa, result) => {
+    sql.query("UPDATE mesa SET st_mesa = 'pre-conta' WHERE cd_mesa = ?", _nrmesa, function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err)

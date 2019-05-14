@@ -27,10 +27,35 @@ exports.read_a_mesa = (req, res) => {
 }
 
 //Arrumar PUT
-exports.update_a_mesa = function (req, res) {
-    Mesa.updateByCd(req.params._nrmesa, new Mesa(req.body), function (err, mesa) {
-        if (err)
-            res.send(err)
-        res.json(mesa)
+exports.update_a_mesa_disponivel = (req, res) => {
+    Mesa.updateByDisponivel(req.params._nrmesa, (err, mesa) => {
+        if (req.params._nrmesa == '') {
+            console.log("Mesa nao Encontrada -> " + err)
+            res.status(404).json({ success: false, message: 'Mesa nao Encontrada' })
+            return
+        }
+        res.status(200).json(mesa)
+    })
+}
+
+exports.update_a_mesa_atendimento = (req, res) => {
+    Mesa.updateByAtendimento(req.params._nrmesa, (err, mesa) => {
+        if (req.params._nrmesa == '') {
+            console.log("Mesa nao Encontrada -> " + err)
+            res.status(404).json({ success: false, message: 'Mesa nao Encontrada' })
+            return
+        }
+        res.status(200).json(mesa)
+    })
+}
+
+exports.update_a_mesa_preconta = (req, res) => {
+    Mesa.updateByPreConta(req.params._nrmesa, (err, mesa) => {
+        if (req.params._nrmesa == '') {
+            console.log("Mesa nao Encontrada -> " + err)
+            res.status(404).json({ success: false, message: 'Mesa nao Encontrada' })
+            return
+        }
+        res.status(200).json(mesa)
     })
 }

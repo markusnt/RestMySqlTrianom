@@ -12,7 +12,12 @@ module.exports = function (app) {
     .get(MesaList.list_all_mesa)
   app.route('/mesa/:_nrmesa')
     .get(MesaList.read_a_mesa)
-    .put(MesaList.update_a_mesa)
+  app.route('/mesaDisponivel/:_nrmesa')
+    .put(MesaList.update_a_mesa_disponivel)
+  app.route('/mesaAtendimento/:_nrmesa')
+    .put(MesaList.update_a_mesa_atendimento)
+  app.route('/mesaPreConta/:_nrmesa')
+    .put(MesaList.update_a_mesa_preconta)
 
   app.route('/grupo')
     .get(GrupoList.list_all_grupo)

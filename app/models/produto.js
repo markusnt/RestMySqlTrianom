@@ -3,6 +3,7 @@ let sql = require('../../db');
 
 let Produto = (produto) => {
     this.cd_produto  = produto.cd_produto
+    this.cd_consulta = produto.cd_consulta
     this.ds_produto  = produto.ds_produto
     this.pr_produto  = produto.pr_produto
     this.cd_subgrupo = produto.cd_subgrupo
