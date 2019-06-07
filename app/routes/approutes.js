@@ -5,7 +5,6 @@ module.exports = function (app) {
   var VendaList = require('../middleware/vendaController')
   var ProdutoList = require('../middleware/produtoController')
   var MesaList = require('../middleware/mesaController')
-  var UsuarioList = require('../middleware/usuarioController')
   // todoList Routes
 
   app.route('/mesa')
@@ -39,6 +38,9 @@ module.exports = function (app) {
     .get(ProdutoList.read_a_produto)
   app.route('/produtoS/:_cdsubgrupo')
     .get(ProdutoList.searchProduto)
+
+  app.route('/venda')
+    .post(VendaList.Insert_Venda)
 
 }
 
