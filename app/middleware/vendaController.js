@@ -32,6 +32,8 @@ var Venda = require('../models/venda')
 //         }
 // }
 
+// https://www.luiztools.com.br/post/como-usar-nodejs-mysql/#2
+
 exports.Insert_Venda = function(req, res) {
   var new_venda = new Venda(req.body);
 
